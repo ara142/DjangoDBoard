@@ -10,7 +10,6 @@ import datetime
 #import ceODBC
 from time import gmtime, strftime, mktime
 from datetime import date,time,timedelta, datetime
-import pickle
 import json
 from fns.functions import *
 
@@ -31,6 +30,7 @@ def individual_index(request):
         left join solarworks..vcustomersinstallationswithutility vci on vci.installationid = g.installationid
         where p.gatewaymac = '%s' 
         """%(mac)
+        print site_details
         df = pd.io.sql.read_frame(sql,conn)
         site_name = site_details[site_details['mac'] == mac]['Name'].reset_index(drop=True)[0]
     
@@ -81,7 +81,6 @@ class HelloTemplate(TemplateView):
 
 
 
-site_details = pd.io.pickle.read_pickle(r'C:\Users\amohan\Documents\IPython Notebooks\site_details.pkl')
 
 ##########################################################################  INDEX PAGE  #######################################################################
 '''

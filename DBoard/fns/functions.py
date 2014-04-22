@@ -9,7 +9,6 @@ from datetime import date,time,timedelta, datetime
 import pickle
 import json
 
-site_details = pd.io.pickle.read_pickle(r'C:\Users\amohan\Documents\IPython Notebooks\site_details.pkl')
 u = '#79BD3B'
 site = '#474747'
 
@@ -402,3 +401,111 @@ def summaryfn(site_name, mac):
     
 Summer = [5,6,7,8,9,10]
 Winter = [1,2,3,4,11,12]
+
+
+#Data
+
+
+site_detail = [
+        { 
+            'Name': 'Clovis', 
+            'mac': '00409D5107D7',
+            'Store no': '2277',
+            'Utility': 'PG&E',
+            'Tariff': 'e19',
+            'Battery Size': '30',
+            'PTO Date': '11/22/2013'
+        },
+        { 
+            'Name': 'Fremont', 
+            'mac': '00409D51029F',
+            'Store no': '5426',
+            'Utility': 'PG&E',
+            'Tariff': 'e19',
+            'Battery Size': '30',
+            'PTO Date': '12/13/2013'
+        },
+        { 
+            'Name': 'Livermore', 
+            'mac': '00409D5102E9',
+            'Utility': 'PG&E',
+            'Store no': '1972',
+            'Tariff': 'a10',
+            'Battery Size': '30',
+            'PTO Date': '11/19/2013'
+        },
+        { 
+            'Name': 'Gilroy', 
+            'mac': '00409D50FDEE',
+            'Store no': '2002',
+            'Utility': 'PG&E',
+            'Tariff': 'e19',
+            'Battery Size': '30',
+            'PTO Date': '2/11/2014'
+        },
+        { 
+            'Name': 'San Diego', 
+            'mac': '00409D5102B5',
+            'Store no': '2479',
+            'Utility': 'SDG&E',
+            'Tariff': 'altou',
+            'Battery Size': '30',
+            'PTO Date': '11/14/2013'
+        },
+        { 
+            'Name': 'Union City', 
+            'mac': '00409D505A6E',
+            'Store no': '2031',
+            'Utility': 'PG&E',
+            'Tariff': 'e19',
+            'Battery Size': '30',
+            'PTO Date': '11/19/2013'
+        },
+        { 
+            'Name': 'Mountain View', 
+            'mac': '0004F3028DE7',
+            'Store no': '2280',
+            'Utility': 'PG&E',
+            'Tariff': 'a10',
+            'Battery Size': '8',
+            'PTO Date': '2/12/2013'
+        },
+        { 
+            'Name': 'Stockton', 
+            'mac': '00409D581833',
+            'Store no': '1554',
+            'Utility': 'PG&E',
+            'Tariff': 'e19',
+            'Battery Size': '8',
+            'PTO Date': '12/20/2012'
+        },
+        { 
+            'Name': 'San Leandro', 
+            'mac': '00409D505A70',
+            'Store no': '2648',
+            'Utility': 'PG&E',
+            'Tariff': 'e19',
+            'Battery Size': '30',
+            'PTO Date': '3/27/2014'
+        },      
+        { 
+            'Name': 'Osgood Rd', 
+            'mac': '00409D510267',
+            'Store no': '2989',
+            'Utility': 'PG&E',
+            'Tariff': 'e19',
+            'Battery Size': '30',
+            'PTO Date': '3/27/2014'
+        },
+        { 
+            'Name': 'Pleasanton', 
+            'mac': '00409D50F6F2',
+            'Store no': '4501',
+            'Utility': 'PG&E',
+            'Tariff': 'e19',
+            'Battery Size': '30',
+            'PTO Date': '3/25/2014'
+        }    
+    ]
+
+site_details = pd.DataFrame(site_detail)
