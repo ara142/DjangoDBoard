@@ -1,0 +1,54 @@
+
+
+.table-collapse .toggle {
+    background: url("/static/img/collapse.gif");
+}
+.table-expand .toggle {
+    background: url("/static/img/expand.gif");
+}
+.toggle {
+    height: 9px;
+    width: 9px;
+    display: inline-block;   
+}
+
+/*.table-financial tr:nth-child(odd) {
+    background-color: rgb(204,238,255);
+}*/
+
+.table-financial > thead > tr {
+    background-color: white;
+}
+
+.table-financial a{
+    color: #333333;
+}
+
+.table-financial thead>tr>th, 
+.table-financial tbody>tr>th, 
+.table-financial tfoot>tr>th, 
+.table-financial thead>tr>td, 
+.table-financial tbody>tr>td, 
+.table-financial tfoot>tr>td {
+    line-height: 10px;
+    font-size:12px
+
+}
+.table-financial td {
+    border-left: none;
+    border-right: none;
+}
+td.table-financial-cell {
+    text-align: right;
+}
+table-financial tr{
+    line-height: 0.5;
+}
+
+.table-financial-total-row {
+    border-top: 1px solid gray
+}
+
+tr.table-financial-hide-row-values td:not(:first-child) {
+    opacity: 0;
+}

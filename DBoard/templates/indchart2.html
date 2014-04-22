@@ -1,0 +1,135 @@
+{% extends "individual.html" %}
+{% block content2 %}
+
+
+
+
+<div id="ctl00_cphMain_divPageContent2" class="page-content">
+    <div class="page-content-inner">
+
+
+
+
+        <div id="ctl00_cphMain_upnl1">
+
+
+
+
+
+
+<!--             <div class="lifetime-energy">LIFETIME OUTPUT: <span class="value">#,###.## kWh</span></div> -->
+            <div style="height:0px !important; overflow:hidden !important; clear:both !important; line-height:0px !important"></div>
+        </div>
+
+        <div class="chart">
+            <div class="chart-top">
+
+
+
+                <div style="height:0px !important; overflow:hidden; clear:both; line-height:0px"></div>
+            </div>
+
+            <div id="chart" class="chart-img">
+                <svg/>
+            </div>
+        </div>
+
+        <div class="chart-bottom">
+
+
+<div id="ctl00_cphMain_ucDownload_pnlDownloadBtn" class="download-bar">
+
+    DOWNLOAD
+    <img id="ctl00_cphMain_ucDownload_imgDL" title="Download Monitoring Data" src='/static/download-icon.png' style="height:16px;">
+
+    </div>
+
+<div id="pnDLModal" class="modal" style="display: none; position: fixed; z-index: 100001;">
+    <div class="modal-title">Download Data</div>
+    <div class="modal-body">
+        <div class="download">
+            <p style="white-space:normal;">Select download options</p>
+
+            <table cellpadding="5" cellspacing="0" border="0" class="opts">
+                <tbody><tr><th>Data Type</th>
+                    <td>
+                        <select name="ctl00$cphMain$ucDownload$ddlDLType" id="ctl00_cphMain_ucDownload_ddlDLType" onchange="javascript:ddlDLType_onChange(this.value)">
+        <option value="summary">Summary</option>
+        <option value="raw">Raw Data</option>
+    </select>
+                    </td>
+                </tr>
+            </tbody></table>
+
+            <div class="submit">
+                <input type="submit" name="ctl00$cphMain$ucDownload$btDLSubmit" value="Download" id="ctl00_cphMain_ucDownload_btDLSubmit" class="btn">
+            </div>
+        </div>
+    </div>
+    <div class="modal-close"><span id="closeModalDL" class="modal-close">Close</span></div>
+
+    <div style="height:0px; width:0px; overflow:hidden">
+        <iframe height="100" style="border:0px; width:100%; line-height:0px; overflow:hidden" id="ifrmDownload"></iframe>
+    </div>
+</div>
+
+
+            <div class="share-bar">
+                    SHARE THIS PAGE:
+                <a id="ctl00_cphMain_lnkFacebookPost" href="https://www.facebook.com/dialog/feed?app_id=138624489634144&link=https%3a%2f%2fwww.mysolarcity.com%2fPowerGuide.aspx%3fJID%3d0533BCAC-11BF-4404-85D2-D5215D3BE1F7%26rand%3d635279305908137871&name=I+produced+78+kWh+last+month&redirect_uri=https%3a%2f%2fwww.mysolarcity.com%2fMonitoring%2fDefault.aspx%3fJID%3d0533BCAC-11BF-4404-85D2-D5215D3BE1F7&picture=https%3a%2f%2fmysolarcity.com%2fimages%2fsocial%2fsolarcity-fb-withlogo.png&description=My+energy+bill+has+gone+down+every+month+since+I+switched+to+clean+energy+with+SolarCity&caption=You+can+go+solar+too!">
+                    <img id="ctl00_cphMain_imgFB" title="Share on Facebook" src='/static/fb-icon.jpg' style="height:16px;"></a>
+                <a id="ctl00_cphMain_lnkEmailShare" href="https://www.mysolarcity.com/Sharing/EmailShare.aspx">
+                    <img id="ctl00_cphMain_imgEmail" title="Share by Email" src='/static/email-icon.png' style="height:16px;"></a>
+            </div>
+            <div style="height:0px !important; overflow:hidden; clear:both; line-height:0px"></div>
+        <div id="ctl00_cphMain_ucDownload_modalExtDL_backgroundElement" class="modalBg" style="display: none; position: fixed; left: 0px; top: 0px; z-index: 10000;"></div></div>
+
+
+</div>
+
+    </div>
+
+
+		
+	<script type="text/javascript">
+			/*These lines are all chart setup.  Pick and choose which chart features you want to utilize. */
+		nv.addGraph(function() {
+		var chart = nv.models.multiBarChart()
+		  .transitionDuration(350)
+		  .reduceXTicks(true)   //If 'false', every single x-axis tick label will be rendered.
+		  .rotateLabels(0)      //Angle to rotate x-axis labels.
+		  .showControls(true)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
+		  .groupSpacing(0.1)    //Distance between each group of bars.
+		;
+
+	  chart.xAxis     //Chart x-axis settings
+		  .axisLabel('Time')
+			.tickFormat(function(d) {return d3.time.format('%H:%M')(new Date(d)) });
+
+	  chart.yAxis     //Chart y-axis settings
+		  .axisLabel('kW')
+		  .tickFormat(d3.format('.02f'));
+
+
+		d3.select('#chart svg')
+			.datum({{chart2 | safe}}) 
+			.call(chart);
+
+		  nv.utils.windowResize(function() { chart.update(); processDisplay(); });
+		  processDisplay();
+		  
+
+
+
+		return chart;
+	});	
+		
+
+
+</script>
+
+{% endblock %}
+
+
+
+

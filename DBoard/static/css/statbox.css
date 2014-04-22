@@ -1,0 +1,65 @@
+/* CSS classes for formatting StatBox's on a webpage */
+
+.statbox .statbox-header-main {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: rgb(247, 247, 249);
+    padding: 0.5em;
+    
+}
+
+.statbox .statbox-header {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.statbox .statbox-value-main {
+    font-size: 2rem;
+    line-height: 100%; /* override bootstrap line-height:20px */
+    padding: 0.5em;
+    text-align: center;
+    color: gray;   
+}
+
+.statbox .statbox-value {
+    font-size: 1.5rem;
+    line-height: 100%;
+    padding: 0.25em;
+    text-align: center;
+    color: gray;
+}
+
+.statbox .units {
+    font-size:75%;
+}
+        
+.caret-up {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid #468847;
+    display: inline-block;
+    height: 0;
+    vertical-align: middle;
+    width: 0;
+}
+
+.good-value {
+    color: #468847;
+}
+
+.caret-down {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #b94a48;
+    border-bottom: 8px solid transparent;
+    display: inline-block;
+    height: 0;
+    vertical-align: middle;
+    width: 0;
+}
+
+.bad-value {
+    color: #b94a48;
+}

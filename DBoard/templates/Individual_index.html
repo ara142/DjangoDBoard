@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>Sites</title>
+<link rel="stylesheet" type="text/css" href="{% static "assets/css/style.css"%}"/>
+
+
+<h3>
+
+The WalMart Sites
+
+</h3>
+</head>
+<body>
+
+<div>
+
+
+
+	<ul id="iphone-scroll">
+		<li>
+        
+		
+			<ul>
+			    {% for data in data %}
+				<li><a href = "/individual_site/{{data.0}}"><strong>{{data.1}}</strong> </a></li>
+				{% endfor %}
+
+			</ul>
+		</li>
+
+	</ul>
+</div>
+</body>
+
+
+{% endblock %}

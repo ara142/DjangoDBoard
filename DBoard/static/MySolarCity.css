@@ -1,0 +1,652 @@
+﻿
+/* OLD ----- To REFACTOR / DELETE / MIGRATE */
+
+
+/* legacy - keep but verify */
+textarea {font-size:9pt}
+select {font-size:9pt; font-family:Arial}
+
+a {outline:0px}
+a:link {color:#219a1b; text-decoration:none; outline:0px; border:none}
+a:visited {color:#219a1b; text-decoration:none; outline:0px; border:none}
+a:active {color:#219a1b; text-decoration:none; outline:0px; border:none}
+a:hover {color:#219a1b; text-decoration:underline; outline:0px; border:none}
+a img {border:none}
+
+
+/***********************************************************************************************************************
+	main layout
+/**********************************************************************************************************************/
+html {height:100%; margin:0px}
+body {height:100%; margin:0px; background-color:#eaeaea; color:#3f3f3f; font-family:Arial, sans-serif; font-size:13px; cursor:default}
+
+#nonFooter {position:relative; min-height:100%}
+* html #nonFooter {height:100%}
+
+#content {background-color:#fff; min-width:884px; padding-bottom:60px; border:solid 0px yellow}
+#bottomContent {padding:20px; background-image:url('../images/BottomShadow.jpg'); background-repeat:repeat-x; background-position:top; background-color:#eaeaea}
+			
+#footer {position:relative; margin-top:0px; background-color:transparent; text-align:center; border:solid 0px red}
+#footer-content {}
+
+/* default settings */
+::-moz-focus-inner { border:0; }
+
+
+/***********************************************************************************************************************
+	reset
+/**********************************************************************************************************************/
+h4 {font-size:14px; padding:0px; margin:15px 0px}
+
+input[type=text] {padding:5px}
+input[type=password] {padding:5px}
+
+
+/**********************************
+	header
+/*********************************/
+/* header - logo and title */
+div.page-header-logo {border:solid 0px red; width:884px; background-color:inherit; margin:0px auto}
+div.page-header-logo div.logo {width:350px; float:left; margin-top:7px; margin-left:-35px; border:solid 0px blue}
+div.page-header-logo div.title {width:550px; float:right; border:solid 0px blue}
+div.page-header-logo div.title div.cust-name {font-size:28px; font-weight:bold; margin-top:13px; text-align:right}
+div.page-header-logo div.title div.cust-location {font-size:16px; text-align:right; margin-top:0px}
+
+/* header - menu */
+div.page-header-nav {height:67px; background-image:url('../images/navbar.jpg'); background-repeat:repeat-x; background-position:bottom; border:solid 0px green}
+div.page-header-nav div.page-header-nav-inner {width:884px; margin:0px auto}
+
+div.page-header-nav div.page-header-nav-inner ul {margin:0px; margin-left:-15px; padding:0px}
+div.page-header-nav div.page-header-nav-inner ul li {float:left; margin:0px; padding-left:15px; padding-right:15px; display:inline-block; list-style-type:none; height:57px; font-size:14px; font-weight:bold}
+div.page-header-nav div.page-header-nav-inner ul li.activeItem {background-image:url('../images/NavPointer.jpg'); background-position:bottom; background-repeat:no-repeat; background-position:bottom;}
+div.page-header-nav div.page-header-nav-inner ul li.activeItem a {color:#219a1b}
+
+div.page-header-nav div.page-header-nav-inner div.nav-main {float:left; width:600px; margin-top:12px}
+div.page-header-nav div.page-header-nav-inner div.nav-account {float:right; width:200px; margin-top:12px;}
+div.page-header-nav div.page-header-nav-inner div.nav-account ul {float:right;}
+div.page-header-nav div.page-header-nav-inner div.nav-account ul li {padding:0px}
+
+div.page-header-nav div.page-header-nav-inner a {text-decoration:none}
+div.page-header-nav div.page-header-nav-inner a:link {text-decoration:none; color:#6a6a6a;}
+div.page-header-nav div.page-header-nav-inner a:visited {text-decoration:none; color:#6a6a6a;}
+div.page-header-nav div.page-header-nav-inner a:active {text-decoration:none; color:#219a1b}
+div.page-header-nav div.page-header-nav-inner a:hover {text-decoration:none; color:#219a1b}
+
+/* public shared view header */
+div.page-header-nav-public-share {height:20px}
+div.page-header-logo div.title-public-share {width:600px; float:left; border:solid 0px blue}
+div.page-header-logo div.title-public-share div.cust-name {font-size:28px; font-weight:bold; margin-top:5px}
+
+div.page-header-nav div.free-consult {position:relative; top:-85px; float:right; margin-right:40px; text-align:left}
+div.page-header-nav div.free-consult div.free-consult-text {color:#219a1b; margin-bottom:10px; font-weight:bold; font-size:16px}
+div.page-header-nav div.free-consult a.free-consult {display:inline-block; width:149px; height:28px; line-height:28px; background-image:url('../images/header/free-consult-button-OFF.png')}
+div.page-header-nav div.free-consult a.free-consult:active {background-image:url('../images/header/free-consult-button-RO.png')}
+div.page-header-nav div.free-consult a.free-consult:hover {background-image:url('../images/header/free-consult-button-RO.png')}
+
+
+/* login screen header */
+div.page-header-nav-empty {height:30px}
+
+/**********************************
+	footer
+/*********************************/
+div.footer-links {font-size:12px; width:884px; margin:0px auto; margin-top:5px}
+div.footer-links span.copyright {margin-left:15px}
+div.footer-links a {color:#6a6a6a}
+
+
+/**********************************
+	content
+/*********************************/
+div.page-content {width:884px; margin:0px auto}
+div.page-content div.page-content-inner {margin-top:35px; min-height:200px}
+div.page-content .page-content-title {font-size:22px}
+
+div.page-content-full {position:relative; top:-14px; clear:both}
+
+
+/***********************************************************************************************************************
+	UI components
+/**********************************************************************************************************************/
+
+div.page-content div.content-section-title {font-size:14px; font-weight:bold}
+
+table.minimal {width:auto; border-spacing:0px}
+table.minimal td {padding:0px}
+
+/**********************************
+	tiles container
+/*********************************/
+div.headline-tiles {width:884px; margin-left:auto; margin-right:auto; margin-top:16px; margin-bottom:25px}
+div.headline-tiles table.chart-tiles {width:100%; border-collapse:collapse}
+div.headline-tiles table.chart-tiles td.tile {width:33%} 
+div.headline-tiles table.chart-tiles td.left-tile {padding-right:18px; border-right:solid 1px #ccc} 
+div.headline-tiles table.chart-tiles td.center-tile {padding-left:18px; padding-right:18px; width:34%} 
+div.headline-tiles table.chart-tiles td.right-tile {padding-left:18px; border-left:solid 1px #ccc} 
+
+/**********************************
+	tiles
+/*********************************/
+div.tile {}
+div.tile div.headline-title {margin-bottom:5px; font-weight:bold}
+
+div.tile-support table.search input.search {width:165px; padding:5px 5px 5px 25px; background-image:url('../images/Tiles/MagnifyIcon.jpg'); background-position:5px; background-repeat:no-repeat;}
+div.tile-support table.search .input-watermark {width:165px; padding:5px 5px 5px 25px; background-image:url('../images/Tiles/MagnifyIcon.jpg'); background-position:5px; background-repeat:no-repeat; color:#999}
+div.tile-support table.search img.search-btn {border:none; margin-left:5px}
+div.tile-support ul.questions {margin:0px; margin-left:-15px; padding:0px}
+div.tile-support ul.questions li {float:left; margin:0px; list-style-type:none; padding-left:25px; line-height:1.5em; font-size:13px}
+
+div.tile-sharing table.sharing td {font-size:13px}
+div.tile-sharing table.sharing td.left {width:99%; padding-top:8px; padding-right:20px; vertical-align:top}
+div.tile-sharing table.sharing td.right {vertical-align:top; width:1%; padding-right:20px; white-space:nowrap; padding-top:8px}
+div.tile-sharing div.fb-share-text {margin-bottom:10px}
+
+div.tile-referral table.sharing td {font-size:13px}
+div.tile-referral table.sharing td.left {width:99%; padding-top:8px; padding-right:20px; vertical-align:top}
+div.tile-referral table.sharing td.right {vertical-align:top; width:1%; padding-right:10px; white-space:nowrap; padding-top:8px}
+div.tile-referral div.email-share-text {margin-bottom:10px}
+
+
+/**********************************
+	input form
+/*********************************/
+div.page-content div.form-section {margin-left:15px; margin-bottom:20px}
+
+div.page-content table.form {width:auto; border-collapse:collapse; border-spacing:0}
+div.page-content table.form th {text-align:right; font-size:15px; font-weight:normal; padding:4px}
+div.page-content table.form td {padding:4px; padding-right:4px}
+div.page-content table.form td.submit-button {text-align:right}
+
+div.page-content table.form-left-margin {margin-left:20px}
+div.page-content table.form-wide {width:100%}
+
+/* form validation*/
+div.page-content .validation-txt {font-size:13px}
+
+/* form elements */
+div.page-content .radio-list {line-height:1.75em}
+div.page-content .dropdown-big {font-size:15px; font-weight:bold; padding:3px 3px 3px 10px; color:#6a6a6a; border:solid 1px #ccc}
+
+/* other form-related */
+.input-watermark {color:#6a6a6a}
+
+/* buttons  */
+a.button {padding:5px 8px; font-size:14px; font-weight:normal; text-align:center; color:rgb(255, 255, 255); background:url('../images/buttons/button.bg.png') transparent; background-size:contain; border-radius:3px; text-decoration:none; display:inline-block; cursor:pointer; white-space:nowrap}
+a.button:hover {background-image: url('../images/buttons/button-hov.bg.png')}
+a.button-disabled {color:#eee; background: url('../images/buttons/button.bg.disable.png') transparent; background-size:contain; cursor:default}
+a.button-disabled:hover {color:#eee; background: url('../images/buttons/button.bg.disable.png') transparent; background-size:contain; cursor:default}
+
+a.button-grey {background:url('../images/buttons/button-grey.bg.png') transparent; background-size:contain;}
+a.button-grey:hover {background-image: url('../images/buttons/button-grey-hov.bg.png')}
+
+
+
+a.button-inline {margin-left:5px}
+div.button-block {margin-top:15px}
+
+/* form copy */
+div.form-copy {}
+div.form-copy p {}
+
+/**********************************
+	messages
+/*********************************/
+div.app-msg {background-color:#eee; border:solid 1px #ccc; border-radius:5px; padding:10px 15px; font-size:14px; line-height:22px; color:#333; margin-bottom:20px}
+div.app-msg-modal {margin-bottom:0px; border-width:0px; min-height:100px}
+div.app-msg p.msg-title {font-weight:bold; font-size:15px; margin-top:0px}
+
+div.error-msg {background-color:cornsilk; border:solid 1px #cc0000}
+div.error-msg p.error-info {font-size:13px}
+
+div.success-msg {color:#fff; background-color:rgba(1, 135, 82, .9); border-color:rgba(1, 135, 82, 1)}
+div.mon-msg {background-color:cornsilk; border:solid 1px #cc0000}
+
+div.docportal-msg {float:right; margin-top:-10px; margin-bottom:0px; background-color:rgba(33, 154, 27, .2); border:solid 0px #8fcc8c; display:inline-block; border-radius:3px; padding:5px 10px; font-size:13px; font-family:Arial; line-height:135%; margin-bottom:10px}
+
+/**********************************
+	loading
+/*********************************/
+div.app-loading {background-color:#fff; border-width:0px; border-radius:5px; padding:15px 100px; font-size:14px; color:#333; text-align:center}
+div.app-loading img.sun {position:relative; left:-15px}
+div.app-loading div.msg1 {font-size:26px; font-stretch:semi-expanded; margin-top:15px}
+div.app-loading div.msg2 {font-size:13px; font-stretch:semi-expanded; margin-top:10px}
+
+
+/* ajax validator callout - fixes inherited table cell padding */
+﻿.ajax__validatorcallout div, .ajax__validatorcallout td {border:solid 1px Black !important;background-color:#fffacd}
+.ajax__validatorcallout .ajax__validatorcallout_popup_table {border:none !important;padding:0px !important}
+.ajax__validatorcallout .ajax__validatorcallout_popup_table_row {vertical-align:top;height:100%;padding:0px !important}
+.ajax__validatorcallout .ajax__validatorcallout_callout_cell {border:none !important;background-color:transparent !important;padding:0px !important; width:1% !important}
+.ajax__validatorcallout .ajax__validatorcallout_callout_table {padding:0px !important}
+.ajax__validatorcallout .ajax__validatorcallout_callout_table_row {padding:0px !important}
+.ajax__validatorcallout .ajax__validatorcallout_callout_arrow_cell {padding:8px 0px 0px 0px !important;border:none !important;background-color:transparent !important; width:auto !important}
+.ajax__validatorcallout .ajax__validatorcallout_callout_arrow_cell .ajax__validatorcallout_innerdiv {border-bottom:none !important;border-right:none !important;border-left:none !important;width:15px;background-color:transparent !important;padding:0px !important;margin:0px}
+.ajax__validatorcallout .ajax__validatorcallout_callout_arrow_cell .ajax__validatorcallout_innerdiv div {border-top:none !important;border-bottom:none !important;border-right:none !important;padding:0px !important}
+.ajax__validatorcallout .ajax__validatorcallout_error_message_cell {padding:5px !important;border-right:none !important;border-left:none !important; width:99% !important; color:#000 !important; background-color:#fffacd !important}
+.ajax__validatorcallout .ajax__validatorcallout_icon_cell {padding:5px !important;border-right:none !important; width:1% !important; background-color:#fffacd !important}
+.ajax__validatorcallout .ajax__validatorcallout_close_button_cell {padding:0px;border-left:none !important; background-color:#fffacd !important}
+.ajax__validatorcallout .ajax__validatorcallout_close_button_cell .ajax__validatorcallout_innerdiv {border:none !important;padding:2px !important}
+
+/**********************************
+	message
+/*********************************/
+div.page-content div.app-message {padding:10px; border:solid 1px #cccccc; margin-bottom:1em; margin-top:1em; background-color:#FFF8DC;}
+div.page-content div.app-message-error {border:solid 1px #d2292e; color:#f6454d}
+
+/**********************************
+	tabs
+/*********************************/
+div.page-content div.tab-container {}
+div.page-content div.tab-container div.tab-header {border-bottom:1px solid #ccc}
+div.page-content div.tab-container div.tab-header ul {margin:0px; padding:0px; top:1px; position:relative}
+div.page-content div.tab-container div.tab-header ul li {float:left; display:inline-block; margin:0px; list-style-type:none; background-color:#fff; font-size:13px; font-weight:bold}
+
+div.page-content div.tab-container div.tab-header ul li a {display:inline-block; padding-left:16px; padding-right:16px; height:29px; line-height:29px; color:#606060; text-decoration:none;}
+div.page-content div.tab-container div.tab-header ul li a:link {}
+div.page-content div.tab-container div.tab-header ul li a:hover {color:#219a1b}
+div.page-content div.tab-container div.tab-header ul li a:active {}
+div.page-content div.tab-container div.tab-header ul li a:visited {}
+
+div.page-content div.tab-container div.tab-header ul li.active {border:solid 1px #ccc; border-bottom-width:0px; color:#000}
+div.page-content div.tab-container div.tab-header ul li.active a {color:#219a1b}
+
+div.page-content div.tab-container div.tab-content {padding:25px 15px 0px 15px; min-height:250px}
+div.page-content div.tab-container div.tab-content div.tab-copy {width:550px}
+
+div.page-content div.tab-container div.tab-content ul.link-list li {color:#999; line-height:200%}
+
+
+/**********************************
+	modal
+/*********************************/
+.modalBg {background-color:#666; filter:alpha(opacity=60); opacity:0.6}
+
+div.modal {background-color:#fff; border:solid 1px #219a1b}
+div.modal div.modal-title {background-color:#219a1b; color:#fff; padding:1px 5px 3px 5px; font-size:15px}
+div.modal div.modal-body {margin:20px; font-size:14px}
+div.modal div.modal-close {text-align:center; margin-top:25px; margin-bottom:3px}
+div.modal div.modal-close span.modal-close {color:#336699; font-size:14px; cursor:pointer; font-variant:small-caps}
+
+/* misc */
+div.back-link {float:right; margin-top:-30px}
+
+/***********************************************************************************************************************
+	HOME
+/**********************************************************************************************************************/
+div.page-content div.product-type {margin-top:20px}
+div.page-content div.product-type img.icon {float:left; width:82px; height:82px}
+div.page-content div.product-type div.title-txt {font-size:14px; padding-left:93px; border-bottom:solid 1px #ccc; padding-bottom:6px; margin-bottom:10px; margin-right:40px; font-weight:bold}
+div.page-content div.product-type a.learn-more {margin-left:5px}
+
+div.page-content div.product-type table.installations {border-width:0px; border-collapse:collapse; font-size:13px; margin-left:93px; width:720px}
+div.page-content div.product-type table.installations th {border-width:0px; text-align:left; padding:5px}
+div.page-content div.product-type table.installations td {border-width:0px; padding:0px 5px; height:26px}
+
+div.page-content div.product-type table.installations .status-col {width:170px; white-space:nowrap}
+div.page-content div.product-type table.installations .status-col-non-monitoring {width:220px; white-space:nowrap}
+div.page-content div.product-type table.installations .cases-col {width:140px; white-space:nowrap; padding-left:8px}
+div.page-content div.product-type table.installations .address-col {width:210px}
+div.page-content div.product-type table.installations .address-col-non-monitoring {width:328px}
+div.page-content div.product-type table.installations .city-col {width:120px}
+div.page-content div.product-type table.installations .state-col {text-align:center}
+
+div.page-content div.product-type table.installations img.status-icon {vertical-align:text-bottom; margin-right:7px; border-width:0px}
+div.page-content div.product-type table.installations a.status-link {}
+
+/***********************************************************************************************************************
+	SUPPORT
+/**********************************************************************************************************************/
+
+
+/***********************************************************************************************************************
+	PROJECT STATUS
+/**********************************************************************************************************************/
+
+/**********************************
+	content - installation status
+/*********************************/
+/* status steps */
+div.page-content div.status-steps {margin-top:16px}
+div.page-content div.status-steps table.status-steps {width:100%; border-collapse:collapse}
+div.page-content div.status-steps table.status-steps td {text-align:center; color:#ccc; line-height:1em}
+div.page-content div.status-steps table.status-steps tr.num td {font-size:23px; font-weight:bold; height:38px; padding-top:5px;}
+div.page-content div.status-steps table.status-steps tr.name td {font-family:"Arial Narrow", Arial; font-stretch:condensed; font-size:17px; font-weight:bold; height:20px}
+div.page-content div.status-steps table.status-steps tr.date td {font-size:12px; border-width:0px; border-bottom:solid 1px #86a555; vertical-align:top; height:23px; padding-top:5px}
+
+/* status steps - completed step */
+div.page-content div.status-steps table.status-steps tr td.completed {color:inherit}
+
+/* status steps - active step */
+div.page-content div.status-steps table.status-steps tr td.active {border-left:1px solid #86a555; border-right:1px solid #86a555; color:inherit; background-color:#f9fdee}
+div.page-content div.status-steps table.status-steps tr.num td.active {border-top:1px solid #86a555}
+div.page-content div.status-steps table.status-steps tr.date td.active {border-bottom:1px solid transparent}
+
+/* status info */
+div.page-content div.status {border:1px solid #86a555; border-top-width:0px; background-color:#f9fdee; padding:20px 22px}
+div.page-content div.status div.status-name {border-bottom:solid 1px #ccc; padding-bottom:5px; font-size:14px; font-weight:bold}
+div.page-content div.status div.status-desc {margin-top:20px}
+div.page-content div.status div.contact-name {margin-top:12px}
+div.page-content div.status div.contact-name span.label {font-weight:bold; width:160px; float:left}
+div.page-content div.status div.contact-name span.value {float:left}
+
+/**********************************
+	content - installation cases
+/*********************************/
+div.page-content div.cases div.case-section-title {font-size:18px; margin-top:20px}
+div.page-content div.cases div.case-item {padding-top:10px; margin-bottom:25px}
+div.page-content div.cases div.case-item:last-child {margin-bottom:0px}
+
+/* case alert */
+div.page-content div.cases div.case-item div.case-alert {height:28px; background-color:#f6454d; border:solid 1px #d2292e; color:#fff; font-size:13px}
+div.page-content div.cases div.case-item div.case-alert span.message {display:inline-block; padding-bottom:2px; position:relative; top:-2px}
+div.page-content div.cases div.case-item div.case-alert img.warning-icon {margin-left:15px; margin-right:15px; display:inline-block; margin-top:4px}
+div.page-content div.cases div.case-item div.case-alert a.status-link {border:solid 1px #fff; color:#fff; margin-left:10px; border-radius:4px; padding:2px 5px; background-color:#d2292e; display:inline-block; font-family:Verdana; text-decoration:none; position:relative; top:-2px}
+
+/* case detail */
+div.page-content div.cases div.case-item div.case-detail {margin-top:10px}
+div.page-content div.cases div.case-item div.case-detail div.case-title {border-bottom:solid 1px #ccc; font-size:14px; font-weight:bold; padding-bottom:3px; margin-bottom:5px}
+div.page-content div.cases div.case-item div.case-detail table.case-detail {font-size:13px}
+div.page-content div.cases div.case-item div.case-detail table.case-detail th {text-align:left; white-space:nowrap; padding:4px 4px 4px 0px; vertical-align:top; width:220px}
+div.page-content div.cases div.case-item div.case-detail table.case-detail td {padding:4px 0px; vertical-align:top}
+
+/***********************************************************************************************************************
+	MY ACCOUNT
+/**********************************************************************************************************************/
+div.page-content div.account-left-pane {float:left; width:470px; border:solid 0px red; min-height:250px}
+div.page-content div.account-right-pane {float:right; width:370px; border:solid 0px red; min-height:250px}
+
+/**********************************
+	documents
+/*********************************/
+div.page-content div.installation-doc {margin-top:25px}
+div.page-content div.installation-doc div.doc-address {border-bottom:1px solid #ccc}
+div.page-content div.installation-doc ul {margin:3px 0px 0px 30px; padding:0px}
+div.page-content div.installation-doc ul li {line-height:1.5em}
+
+
+/**********************************
+	documents - new
+/*********************************/
+div.page-content div.install-docs {margin-top:25px}
+div.page-content div.installation-doc div.doc-address {border-bottom:1px solid #ccc}
+div.page-content div.installation-doc ul {margin:3px 0px 0px 30px; padding:0px}
+div.page-content div.installation-doc ul li {line-height:1.5em}
+
+/**********************************
+	document portal
+/*********************************/
+div.page-content div.doc-list-title {font-size:15px; font-weight:bold; color:#219a1b; margin:20px 0px 10px 1px}
+div.page-content div.doc-list-title:first-child {margin-top:0px}
+
+div.page-content table.docs {width:100%; border-width:0px; border-spacing:0px; border-collapse:collapse; margin:0px; margin-bottom:30px; font-size:13px}
+
+div.page-content table.docs th {background-color:#ddd; font-size:12px; border:solid 1px #fff; border-top-width:0px; padding:3px 5px; white-space:nowrap; line-height:250%}
+div.page-content table.docs th.admin-notes {line-height:normal}
+div.page-content table.docs th.doc-name {width:350px}
+div.page-content table.docs th.ahj {width:100px}
+div.page-content table.docs th.download {width:67px}
+div.page-content table.docs th.action {min-width:150px}
+div.page-content table.docs th.upload {min-width:56px}
+
+div.page-content table.docs td {padding:10px 4px; border:solid 1px #fff; border-bottom-color:#ddd; min-height:100px}
+div.page-content table.docs td.doc-name {font-size:15px; font-weight:bold; font-family:'Segoe UI'}
+div.page-content table.docs td.doc-name-emp {font-size:15px; font-weight:bold; font-family:'Segoe UI'}
+div.page-content table.docs td.ahj-name {font-size:11px;}
+div.page-content table.docs td.admin-notes {font-size:12px}
+div.page-content table.docs td.action {white-space:nowrap}
+div.page-content table.docs td.chkbox {text-align:center; width:1%; white-space:nowrap; height:100px}
+div.page-content table.docs td.upload {width:1%; white-space:nowrap}
+div.page-content table.docs td.upload select {font-size:11px; width:75px; display:block; margin-bottom:4px}
+
+div.page-content table.docs td.action div.action-wait {text-align:center; display:none}
+div.page-content table.docs td.action div.action-wait div.wait-msg {font-size:12px; color:#666; margin-top:5px}
+
+div.page-content table.docs div.drag-n-drop-file-upload {}
+div.page-content table.docs div.drag-n-drop-file-upload div.drop-zone {border:1px dashed #999; border-radius:5px; background-color:#eee; color:#999; margin:0px; padding:15px 2px; width:70px; font-weight:normal; font-size:12px; text-align:center; white-space:normal}
+div.page-content table.docs div.drag-n-drop-file-upload div.drop-zone.hover {background-color:#f0ab05; color:#fff}
+div.page-content table.docs div.drag-n-drop-file-upload div.drop-zone.success {background-color:rgba(33, 154, 27, 0.7); color:#fff}
+div.page-content table.docs div.drag-n-drop-file-upload div.no-drop-zone {border:1px dashed #999; border-radius:5px; background-color:#fff; color:#999; margin:0px; padding:15px 2px; width:70px; font-weight:normal; font-size:12px; text-align:center; white-space:normal}
+div.page-content table.docs div.drag-n-drop-file-upload div.no-drop-zone:hover {background-color:#fff; color:#cc0000}
+div.page-content table.docs div.submit-file {margin-top:3px}
+
+div.page-content table.docs div.legacy-file-upload {}
+div.page-content table.docs .async-upload {overflow:hidden; width:75px; border:none}
+div.page-content table.docs .async-upload input {font-size:12px; width:75px}
+
+div.page-content table.docs div.cust-notes {margin-top:10px; margin-left:10px; font-size:13px; font-style:italic; font-weight:normal}
+/*div.page-content table.docs input[type=file] {font-size:12px; font-style:italic}*/	
+div.page-content table.docs input[type=submit] {font-size:12px}
+
+div.page-content table.docs tr:hover td {background-color:rgba(220, 220, 220, .5)}
+
+div.page-content table.docs a.button-docs {font-size:12px; padding:3px 5px; display:inline-block; min-width:60px; margin:5px auto 0px auto;}
+div.page-content table.docs a.button-docs.long {padding:inherit 10px; min-width:100px;}
+div.page-content table.docs a.button-cust-dl {line-height:250%}
+
+/***********************************************************************************************************************
+	SHARING
+/**********************************************************************************************************************/
+
+/* EMAIL SHARE */
+img.email-thumb {border:1px solid #ccc}
+
+
+/* PERSONAL LINK */
+div.purl-form {background-color:#eaeaea; padding:20px 12px; margin-bottom:20px}
+span.view-purl {display:inline-block; border:1px solid #ccc; padding:2px 30px 2px 5px; margin-left:10px}
+
+
+
+/* old */
+div.page-content div.sharing-left-pane {float:left; width:470px; border:solid 0px red; min-height:250px}
+div.page-content div.sharing-right-pane {float:right; width:370px; border:solid 0px red; min-height:250px}
+
+div.page-content div.sharing-option-label {font-weight:bold; margin-top:20px; margin-bottom:5px}
+div.page-content table.sharing-radio-list td {padding:0px 0px 3px 0px}
+div.page-content table.sharing-radio-list label {margin-left:12px}
+
+div.page-content table.facebook-status {width:100%; border:0px}
+div.page-content table.facebook-status td.icon {width:1%; white-space:nowrap; vertical-align:middle}
+div.page-content table.facebook-status td.status {width:99%; padding-left:10px}
+
+
+
+
+/***********************************************************************************************************************
+	MONITORING
+/**********************************************************************************************************************/
+
+/**********************************
+	content - chart-header
+/*********************************/
+div.page-content div.chart-header span.chart-date {font-size:20px}
+div.page-content div.chart-header {height:28px; border:solid 0px green}
+div.page-content div.chart-header table.chart-header {width:100%; border-collapse:collapse}
+div.page-content div.chart-header table.chart-header td {border:solid 0px blue}
+
+/* chart-header - date */
+div.page-content div.chart-header table.chart-header td.date {width:210px; white-space:nowrap; line-height:32px; padding-right:20px}
+
+/* chart-header - weather */
+div.page-content div.chart-header table.chart-header td.wx table.wx-detail {font-size:13px}
+div.page-content div.chart-header table.chart-header td.wx table.wx-detail td {border:solid 0px red}
+div.page-content div.chart-header table.chart-header td.wx table.wx-detail td {white-space:nowrap}
+div.page-content div.chart-header table.chart-header td.wx table.wx-detail td.icon {padding-right:3px}
+div.page-content div.chart-header table.chart-header td.wx table.wx-detail td.icon img {}
+div.page-content div.chart-header table.chart-header td.wx table.wx-detail td.sun-hrs {width:60px}
+
+/* chart-header - address */
+div.page-content div.chart-header table.chart-header td.address {text-align:right; width:400px; line-height:32px}
+div.page-content div.chart-header table.chart-header td.address .txt {font-size:15px; font-weight:bold; color:#6a6a6a; white-space:nowrap}
+
+/**********************************
+	content - chart navigation
+/*********************************/
+/* navigation - resolution */
+div.chart-navi {margin-top:10px}
+
+div.chart-navi div.nav {width:400px; float:left}
+div.chart-navi div.nav ul {margin:0px; padding:0px; top:1px; position:relative}
+div.chart-navi div.nav ul li {float:left; display:inline-block; margin:0px; list-style-type:none; background-color:#fff}
+
+div.chart-navi div.nav ul li a {display:inline-block; padding-left:16px; padding-right:16px; height:29px; line-height:29px; font-size:14px; font-weight:500; color:#aaa; text-decoration:none;}
+div.chart-navi div.nav ul li a:link {}
+div.chart-navi div.nav ul li a:hover {color:#000}
+div.chart-navi div.nav ul li a:active {}
+div.chart-navi div.nav ul li a:visited {}
+
+div.chart-navi div.nav ul li.active {border:solid 1px #ccc; border-bottom-width:0px; background-color:#f7f7f7; color:#000}
+div.chart-navi div.nav ul li.active a {color:#000}
+
+/* lifetime energy */
+div.chart-navi div.lifetime-energy {float:right; margin-right:16px; text-align:right; width:400px; line-height:29px; font-size:14px; font-weight:500}
+div.chart-navi div.lifetime-energy span.value {color:#219a1b; font-weight:bold}
+
+/**********************************
+	content - chart
+/*********************************/
+div.chart {background-color:#f7f7f7; border:solid 1px #ccc; border-bottom-width:0px; padding-bottom:8px}
+div.chart div.chart-top {}
+div.chart div.chart-img {height:340px} /* maintain UI height when navigating charts */
+div.chart div.chart-img img {border:none} /* maintain UI height when navigating charts */
+
+
+/**********************************
+	content - chart top
+/*********************************/
+/* navigation - previous/next */
+div.chart div.chart-top div.chart-nav-prevnext {margin-top:10px; margin-left:16px; width:250px; float:left}
+div.chart div.chart-top div.chart-nav-prevnext span.link {font-size:14px; color:#999}
+div.chart div.chart-top div.chart-nav-prevnext span.link:hover {color:#000; cursor:pointer}
+div.chart div.chart-top div.chart-nav-prevnext span.link-current {color:#000}
+
+/* chart energy */
+div.chart div.chart-top table.chart-energy {float:right; margin-top:10px; margin-right:15px}
+div.chart div.chart-top table.chart-energy td {font-size:14px;}
+div.chart div.chart-top table.chart-energy td.legend {padding-left:25px}
+div.chart div.chart-top table.chart-energy td.legend div.legendColor {height:10px; width:10px; overflow:hidden; float:left; margin-right:2px}
+div.chart div.chart-top table.chart-energy td.label {padding-left:5px}
+div.chart div.chart-top table.chart-energy td.label span.value {color:#219a1b; font-weight:bold}
+
+/**********************************
+	content - data download
+/*********************************/
+div.modal div.download {width:450px}
+div.modal div.download table.opts {background-color:#efefef; margin-bottom:5px; width:100%}
+div.modal div.download table.opts th {white-space:nowrap; text-align:left; width:1%; font-weight:normal; padding-left:10px; padding-right:10px}
+div.modal div.download table.opts td {white-space:nowrap}
+div.modal div.download div.submit {margin-left:10px; margin-top:0.75em}
+
+/***********************************************************************************************************************
+	MONITORING STATUS - refactor these
+/**********************************************************************************************************************/
+
+/* base style for info display */
+table.info-table {border:0px; border-collapse:collapse; width:auto}
+table.info-table th {padding:2px 4px; background-color:#eee}
+table.info-table td {padding:2px 4px}
+
+/* extensions of base info-table */
+table.info-table-installation {width:100%; background-color:#eee; font-size:17px}
+table.info-table-installation td {padding:4px 10px;}
+table.info-table-installation td.address {width:90%; line-height:1.5em}
+table.info-table-installation td.sys-size {width:10%; white-space:nowrap; text-align:right; border-left:solid 2px #fff; font-size:16px}
+
+/* system/device states */
+table.sysState {width:100%; font-size:14px}
+table.sysState td {border-bottom:solid 1px #ddd}
+table.sysState td.type {padding-left:0px; white-space:nowrap;}
+table.sysState td.type span.invtSerial {font-size:95%;}
+table.sysState td.label {padding-left:15px; white-space:nowrap}
+table.sysState td.label span.online {color:#009900;}
+table.sysState td.label span.offline {color:#dd0000;}
+
+table.sysState div.summary {margin:1.25em 2.5em; margin-top:0px; border:solid 0px #cccccc; color:#666666 }
+table.sysState div.action {margin:1.25em 2.5em; margin-bottom:2.5em; border:solid 0px #cccccc; color:#666666}
+table.sysState div.action ul {margin-top:0.25em;}
+table.sysState div.action ul li {line-height:1.5em}
+
+td.probLabel {padding:3px; background-color:#eee}
+div.system-status-item {margin-bottom:25px}
+
+div.link-strip {}
+div.link-strip-horiz {padding:5px 5px;}
+div.link-strip a {}
+
+/**********************************
+	content - chart bottom
+/*********************************/
+div.chart-bottom {background-color:#999; height:28px}
+
+/* download */
+div.chart-bottom div.download-bar {height:28px; float:left; border-right:solid 1px #bbb; text-align:center; font-size:80%; line-height:28px; color:#fff; padding-left:20px; padding-right:20px}
+div.chart-bottom div.download-bar img {vertical-align:middle; margin-left:10px; cursor:pointer}
+
+/* share */
+div.chart-bottom div.share-bar {height:28px; line-height:28px; vertical-align:middle; float:left; border-left:solid 1px #777; font-size:80%; color:#fff; padding-left:20px; padding-right:10px}
+div.chart-bottom div.share-bar a {margin-left:10px; line-height:28px; }
+div.chart-bottom div.share-bar img {vertical-align:middle}
+
+/* problem message */
+div.error-alert {height:28px; background-color:#f6454d; border:solid 1px #d2292e; color:#fff; font-size:13px}
+div.error-alert span.message {}
+div.error-alert img.warning-icon {margin-left:15px; margin-right:15px}
+div.error-alert a.status-link {border:solid 1px #fff; color:#fff; border-radius:4px; margin-left:10px; padding:0px 5px; line-height:20px; height:20px; background-color:#d2292e; display:inline-block; font-family:Verdana; text-decoration:none; position:relative; top:1px}
+
+table.error-alert {height:28px; border:0px; border-spacing:0px}
+table.error-alert td {white-space:nowrap}
+table.error-alert td.warning-icon {padding:0px 15px}
+table.error-alert a.status-link {border:solid 1px #fff; color:#fff; border-radius:4px; margin-left:10px; padding:0px 5px; line-height:20px; background-color:#d2292e; display:block; font-family:Verdana; text-decoration:none}
+
+/* chart disclaimer */
+div.chart-note {font-size:11px; margin-top:3px}
+
+/***********************************************************************************************************************
+	INTERACTIVE HEE
+/**********************************************************************************************************************/
+
+div.ihee-layout {}
+
+table.ihee-layout {width:100%; border-spacing:0px; border-width:0px; border-collapse:collapse}
+table.ihee-layout th {padding:0; border-width:0}
+table.ihee-layout td {padding:0; border-width:0; vertical-align:top}
+
+/* spacing and margin */
+table.ihee-layout th.spacer-current {}
+table.ihee-layout th.spacer-recomm {background-color:#018752}
+table.ihee-layout div.prod-content {}
+
+table.ihee-layout tr.heading-row th {border-bottom:1px solid #b2b2b2; height:70px}
+table.ihee-layout tr.heading-row th.heading {white-space:nowrap; padding:0px; font-size:24px; line-height:70px; text-align:left; font-weight:normal}
+table.ihee-layout tr.heading-row th.heading-current {width:560px; border-right:1px solid #b2b2b2}
+table.ihee-layout tr.heading-row th.heading-current span {margin-left:20px}
+table.ihee-layout tr.heading-row th.heading-recomm {width:324px; background-color:#018752; color:#fff; padding-left:30px}
+
+table.ihee-layout td.heechart {border-right:1px solid #b2b2b2; width:560px; height:650px; vertical-align:top}
+table.ihee-layout td.products {background-color:#f6f6f6; height:650px; padding-left:25px; width:325px}
+table.ihee-layout td.products-spacer {background-color:#f6f6f6}
+
+div.footnote {color:#999; font-size:11px; line-height:10px; margin-top:20px; position:absolute; bottom:0px; margin-bottom:3px}
+
+/***********************************************************************************************************************
+	EXTERNAL
+/**********************************************************************************************************************/
+
+/* referral center - personal link, paypay email */
+div.referral-settings {width:730px}
+div.referral-settings ul.rules {list-style-type:square}
+div.referral-settings ul.rules li {margin-bottom:10px}
+
+div.referral-settings table.settings-form {border-collapse:collapse; font-size:14px; border-width:0; width:100%; white-space:nowrap}
+div.referral-settings table.settings-form th {padding:5px; border:none; background-color:#eaeaea; color:#333; text-align:right}
+div.referral-settings table.settings-form td {padding:5px 10px; border:none}
+div.referral-settings table.settings-form td.field {white-space:nowrap; background-color:#eaeaea; color:#333; width:1%}
+div.referral-settings table.settings-form td.save {white-space:nowrap; width:1%}
+div.referral-settings table.settings-form td.anim {width:99%; padding-left:0px}
+		
+div.referral-settings div.message {margin-top:5px; padding:2px; color:#00b000}
+div.referral-settings div.message.error-message {color:#cc0000}
+div.referral-settings div.message img.icon {width:20px; height:20px; border:0; margin-right:5px; vertical-align:middle}
+
+
+/* OLD ----- To REFACTOR / DELETE / MIGRATE */

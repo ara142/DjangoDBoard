@@ -1,0 +1,90 @@
+::selection {
+  background: rgba(19,169,27,0.65);
+  text-shadow: none;
+  color: #fff;
+}
+body {
+/*    padding-top: 60px;*/
+    padding-bottom: 0px;
+}
+.sidebar-nav {
+    padding: 9px 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+.good {background-color:#CEF6D8;}
+.ok {background-color:#F6E3CE;}
+.bad {background-color:#F5A9A9;}
+
+.text-success{color: #468847;}
+.text-error{color: #b94a48;}
+.text-danger{color: #b94a48;}
+
+@media (max-width: 980px) {
+    /* Enable use of floated navbar text */
+    .navbar-text.pull-right {
+        float: none;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+/* Formatting and styles for report templates */
+
+
+div.report-header h1, h2, h3, h4, h5, h6 {
+    display: inline-block;
+    color: #5a5a5a;
+}
+
+
+
+
+/* First level of nav */
+.bs-sidenav {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top:    10px;
+  padding-bottom: 10px;
+  text-shadow: 0 1px 0 #fff;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+/* All levels of nav */
+.bs-sidebar .nav > li > a {
+  display: block;
+  color: #6D7A6B;
+  padding: 5px 20px;
+}
+.bs-sidebar .nav > li > a:hover,
+.bs-sidebar .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #e3e3e3;
+  border-right: 1px solid #dbd8e0;
+}
+.bs-sidebar .nav > .active > a,
+.bs-sidebar .nav > .active:hover > a,
+.bs-sidebar .nav > .active:focus > a {
+  font-weight: bold;
+  color: #1E6B00;
+  background-color: transparent;
+  border-right: 1px solid #1E6B00;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-sidebar .nav .nav {
+  display: none; /* Hide by default, but at >768px, show it */
+  margin-bottom: 8px;
+}
+.bs-sidebar .nav .nav > li > a {
+  padding-top:    3px;
+  padding-bottom: 3px;
+  padding-left: 30px;
+  font-size: 90%;
+}
+

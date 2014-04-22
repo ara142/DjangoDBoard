@@ -1,0 +1,397 @@
+
+{% extends "individual.html" %}
+
+{% block content1 %}
+
+
+
+<div id="ctl00_cphMain_divPageContent" class="page-content">
+    <div class="page-content-inner">
+
+
+
+
+        <div id="ctl00_cphMain_upnl1">
+
+
+
+
+
+
+<!--             <div class="lifetime-energy">LIFETIME OUTPUT: <span class="value">#,###.## kWh</span></div> -->
+            <div style="height:0px !important; overflow:hidden !important; clear:both !important; line-height:0px !important"></div>
+        </div>
+
+        <div class="chart">
+            <div class="chart-top">
+
+
+
+                <div style="height:0px !important; overflow:hidden; clear:both; line-height:0px"></div>
+            </div>
+
+            <div id="chart" class="chart-img">
+                <svg/>
+            </div>
+        </div>
+
+<div class="chart-bottom">
+
+
+
+
+    <div id="pnDLModal" class="modal" style="display: none; position: fixed; z-index: 100001;">
+        <div class="modal-title">Download Data</div>
+        <div class="modal-body">
+            <div class="download">
+                <p style="white-space:normal;">Select download options</p>
+
+                <table cellpadding="5" cellspacing="0" border="0" class="opts">
+                    <tbody><tr><th>Data Type</th>
+                        <td>
+                            <select name="ctl00$cphMain$ucDownload$ddlDLType" id="ctl00_cphMain_ucDownload_ddlDLType" onchange="javascript:ddlDLType_onChange(this.value)">
+            <option value="summary">Summary</option>
+            <option value="raw">Raw Data</option>
+        </select>
+                        </td>
+                    </tr>
+                </tbody></table>
+
+                <div class="submit">
+                    <input type="submit" name="ctl00$cphMain$ucDownload$btDLSubmit" value="Download" id="ctl00_cphMain_ucDownload_btDLSubmit" class="btn">
+                </div>
+            </div>
+        </div>
+        <div class="modal-close"><span id="closeModalDL" class="modal-close">Close</span></div>
+
+        <div style="height:0px; width:0px; overflow:hidden">
+            <iframe height="100" style="border:0px; width:100%; line-height:0px; overflow:hidden" id="ifrmDownload"></iframe>
+        </div>
+</div>
+
+
+           
+            <div style="height:0px !important; overflow:hidden; clear:both; line-height:0px"></div>
+        <div id="ctl00_cphMain_ucDownload_modalExtDL_backgroundElement" class="modalBg" style="display: none; position: fixed; left: 0px; top: 0px; z-index: 10000;"></div></div>
+
+
+</div>
+
+    </div>
+
+
+
+
+		
+	<script type="text/javascript">
+			/*These lines are all chart setup.  Pick and choose which chart features you want to utilize. */
+nv.addGraph(function() {
+  // var chart = nv.models.lineChart()
+  //               .margin({left: 100})  //Adjust chart margins to give the x-axis some breathing room.
+  //               .useInteractiveGuideline(true)  //We want nice looking tooltips and a guideline!
+  //               .transitionDuration(350)  //how fast do you want the lines to transition?
+  //               .showLegend(true)       //Show the legend, allowing users to turn on/off line series.
+  //               .showYAxis(true)        //Show the y-axis
+  //               .showXAxis(true)        //Show the x-axis
+  // ;
+
+
+    var chart = nv.models.stackedAreaChart()
+                  .margin({right: 100})
+                  // .x(function(d) { return d[0] })   //We can modify the data accessor functions...
+                  // .y(function(d) { return d[1] })   //...in case your data is formatted differently.
+                  .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
+                  .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
+                  .transitionDuration(500)
+                  .showControls(false)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                  .clipEdge(true);
+
+
+  chart.xAxis     //Chart x-axis settings
+      .axisLabel('Time')
+        .tickFormat(function(d) {return d3.time.format('%H:%M')(new Date(d)) });
+
+  chart.yAxis     //Chart y-axis settings
+      .axisLabel('kW')
+      .tickFormat(d3.format('.02f'));
+
+  /* Done setting the chart up? Time to render it!*/
+  //You need data...
+
+  d3.select('#chart svg')    //Select the <svg> element you want to render the chart in.
+      .datum({{chart1 | safe}})         //Populate the <svg> element with chart data...
+      .call(chart);          //Finally, render the chart!
+
+  //Update the chart when window resizes.
+  nv.utils.windowResize(function() { chart.update(); processDisplay(); });
+  processDisplay();
+
+  return chart;
+});
+
+function processDisplay() {
+                setTimeout(function(){
+                                $('.nv-axisMaxMin').hide()
+                                $('.nv-series-1').css('fill-opacity', '1')
+                                $('.nv-series-0').css('fill-opacity', '1')
+                }, 500);
+};
+
+
+</script>
+
+{% endblock %}
+
+{% block content2 %}
+
+
+
+
+<div id="ctl00_cphMain_divPageContent2" class="page-content">
+    <div class="page-content-inner">
+
+
+
+
+        <div id="ctl00_cphMain_upnl1">
+
+
+
+
+
+
+<!--             <div class="lifetime-energy">LIFETIME OUTPUT: <span class="value">#,###.## kWh</span></div> -->
+            <div style="height:0px !important; overflow:hidden !important; clear:both !important; line-height:0px !important"></div>
+        </div>
+
+        <div class="chart">
+            <div class="chart-top">
+
+
+
+                <div style="height:0px !important; overflow:hidden; clear:both; line-height:0px"></div>
+            </div>
+
+            <div id="chart2" class="chart-img">
+                <svg/>
+            </div>
+        </div>
+
+        <div class="chart-bottom">
+
+
+
+<div id="pnDLModal" class="modal" style="display: none; position: fixed; z-index: 100001;">
+    <div class="modal-title">Download Data</div>
+    <div class="modal-body">
+        <div class="download">
+            <p style="white-space:normal;">Select download options</p>
+
+            <table cellpadding="5" cellspacing="0" border="0" class="opts">
+                <tbody><tr><th>Data Type</th>
+                    <td>
+                        <select name="ctl00$cphMain$ucDownload$ddlDLType" id="ctl00_cphMain_ucDownload_ddlDLType" onchange="javascript:ddlDLType_onChange(this.value)">
+        <option value="summary">Summary</option>
+        <option value="raw">Raw Data</option>
+    </select>
+                    </td>
+                </tr>
+            </tbody></table>
+
+            <div class="submit">
+                <input type="submit" name="ctl00$cphMain$ucDownload$btDLSubmit" value="Download" id="ctl00_cphMain_ucDownload_btDLSubmit" class="btn">
+            </div>
+        </div>
+    </div>
+    <div class="modal-close"><span id="closeModalDL" class="modal-close">Close</span></div>
+
+    <div style="height:0px; width:0px; overflow:hidden">
+        <iframe height="100" style="border:0px; width:100%; line-height:0px; overflow:hidden" id="ifrmDownload"></iframe>
+    </div>
+</div>
+
+
+            
+            <div style="height:0px !important; overflow:hidden; clear:both; line-height:0px"></div>
+        <div id="ctl00_cphMain_ucDownload_modalExtDL_backgroundElement" class="modalBg" style="display: none; position: fixed; left: 0px; top: 0px; z-index: 10000;"></div></div>
+
+
+</div>
+
+    </div>
+
+
+		
+	<script type="text/javascript">
+			/*These lines are all chart setup.  Pick and choose which chart features you want to utilize. */
+		nv.addGraph(function() {
+		var chart = nv.models.multiBarChart()
+		  .transitionDuration(350)
+		  .reduceXTicks(true)   //If 'false', every single x-axis tick label will be rendered.
+		  .rotateLabels(0)      //Angle to rotate x-axis labels.
+		  .showControls(true)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
+		  .groupSpacing(0.1)    //Distance between each group of bars.
+		;
+
+	  chart.xAxis     //Chart x-axis settings
+		  .axisLabel('Time')
+			.tickFormat(function(d) {return d3.time.format("%m/%d/%Y")(new Date(d)) });
+
+	  chart.yAxis     //Chart y-axis settings
+		  .axisLabel('kW')
+		  .tickFormat(d3.format('.02f'));
+
+
+		d3.select('#chart2 svg')
+			.datum({{chart2 | safe}}) 
+			.call(chart);
+
+		  nv.utils.windowResize(function() { chart.update(); processDisplay(); });
+		  processDisplay();
+		  
+
+
+
+		return chart;
+	});	
+		
+
+
+</script>
+
+{% endblock %}
+
+
+{% block content3 %}
+
+
+<div id="ctl00_cphMain_divPageContent2" class="page-content">
+    <div class="page-content-inner">
+
+
+
+
+        <div id="ctl00_cphMain_upnl1">
+
+
+
+
+
+
+<!--             <div class="lifetime-energy">LIFETIME OUTPUT: <span class="value">#,###.## kWh</span></div> -->
+            <div style="height:0px !important; overflow:hidden !important; clear:both !important; line-height:0px !important"></div>
+        </div>
+
+        <div class="chart">
+            <div class="chart-top">
+
+
+
+                <div style="height:0px !important; overflow:hidden; clear:both; line-height:0px"></div>
+            </div>
+
+            <div id="chart3" class="chart-img">
+                <svg/>
+            </div>
+        </div>
+
+        <div class="chart-bottom">
+
+
+
+
+<div id="pnDLModal" class="modal" style="display: none; position: fixed; z-index: 100001;">
+    <div class="modal-title">Download Data</div>
+    <div class="modal-body">
+        <div class="download">
+            <p style="white-space:normal;">Select download options</p>
+
+            <table cellpadding="5" cellspacing="0" border="0" class="opts">
+                <tbody><tr><th>Data Type</th>
+                    <td>
+                        <select name="ctl00$cphMain$ucDownload$ddlDLType" id="ctl00_cphMain_ucDownload_ddlDLType" onchange="javascript:ddlDLType_onChange(this.value)">
+        <option value="summary">Summary</option>
+        <option value="raw">Raw Data</option>
+    </select>
+                    </td>
+                </tr>
+            </tbody></table>
+
+            <div class="submit">
+                <input type="submit" name="ctl00$cphMain$ucDownload$btDLSubmit" value="Download" id="ctl00_cphMain_ucDownload_btDLSubmit" class="btn">
+            </div>
+        </div>
+    </div>
+    <div class="modal-close"><span id="closeModalDL" class="modal-close">Close</span></div>
+
+    <div style="height:0px; width:0px; overflow:hidden">
+        <iframe height="100" style="border:0px; width:100%; line-height:0px; overflow:hidden" id="ifrmDownload"></iframe>
+    </div>
+</div>
+
+
+          
+            <div style="height:0px !important; overflow:hidden; clear:both; line-height:0px"></div>
+        <div id="ctl00_cphMain_ucDownload_modalExtDL_backgroundElement" class="modalBg" style="display: none; position: fixed; left: 0px; top: 0px; z-index: 10000;"></div></div>
+
+
+</div>
+
+    </div>
+
+
+		
+	<script type="text/javascript">
+			/*These lines are all chart setup.  Pick and choose which chart features you want to utilize. */
+		nv.addGraph(function() {
+		var chart = nv.models.multiBarChart()
+		  .transitionDuration(350)
+		  .reduceXTicks(true)   //If 'false', every single x-axis tick label will be rendered.
+		  .rotateLabels(0)      //Angle to rotate x-axis labels.
+		  .showControls(true)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
+		  .groupSpacing(0.1)    //Distance between each group of bars.
+		;
+
+	  chart.xAxis     //Chart x-axis settings
+		  .axisLabel('Time')
+			.tickFormat(function(d) {return d3.time.format("%m/%d/%Y")(new Date(d)) });
+
+	  chart.yAxis     //Chart y-axis settings
+		  .axisLabel('kW')
+		  .tickFormat(d3.format('.02f'));
+
+
+		d3.select('#chart3 svg')
+			.datum({{chart3 | safe}}) 
+			.call(chart);
+
+		  nv.utils.windowResize(function() { chart.update(); processDisplay(); });
+		  processDisplay();
+		  
+
+
+
+		return chart;
+	});	
+		
+
+
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
