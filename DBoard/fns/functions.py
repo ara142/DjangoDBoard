@@ -11,6 +11,7 @@ import json
 
 u = '#79BD3B'
 site = '#474747'
+conn = pyodbc.connect(DRIVER='{SQL Server}',SERVER='reportingdb',DATABASE='EnergyStorage',Trusted_Connection='yes', autocommit=True)
 
 
 ##########################################################################  FUNCTIONS  #######################################################################
@@ -147,7 +148,6 @@ def status_checkfn(site_name, mac):
    
     order by MeasuredTime"""%(mac)
     
-    conn = pyodbc.connect(DRIVER='{SQL Server}',SERVER='reportingdb',DATABASE='EnergyStorage',Trusted_Connection='yes', autocommit=True)
 
     df = pd.io.sql.read_frame(sql1, conn)
     try:
@@ -204,7 +204,7 @@ def status_checkfn(site_name, mac):
     temp.columns = ['Site','Missing Data','Max Peak','No. Trgt Peak Changes','Energy Constraint','Did Battery Discharge','Uptime Availability','Time of Last Operation', 'Currently Operational']
 
     
-    conn.close()    
+
     return temp, unsampled
 
 
@@ -230,7 +230,6 @@ def monthly_summaryfn(site_name, mac):
     order by MeasuredTime"""%(dt1.year,dt1.month,h,mac)
     
     #print sql1
-    conn = pyodbc.connect(DRIVER='{SQL Server}',SERVER='reportingdb',DATABASE='EnergyStorage',Trusted_Connection='yes', autocommit=True)
 
     df = pd.io.sql.read_frame(sql1, conn)
     if mac == '0004F3028DE7' or mac == '00409D581833':
@@ -292,7 +291,7 @@ def monthly_summaryfn(site_name, mac):
     #temp.columns = ['Site','Mac Address','Status','Max Peak','Demand Shaving(kW)','Time of Operation (%)','Time of Last Operation ']
     temp.columns = ['Site','Missing Data','Max Peak','Demand Shaving(kW)','Uptime Availability','Currently Operational']
 
-    conn.close()
+ 
 
 
 
@@ -359,7 +358,6 @@ def summaryfn(site_name, mac):
     order by MeasuredTime"""%(mac)
     
     #print sql1
-    conn = pyodbc.connect(DRIVER='{SQL Server}',SERVER='reportingdb',DATABASE='EnergyStorage',Trusted_Connection='yes', autocommit=True)
 
     df = pd.io.sql.read_frame(sql1, conn)
     if mac == '0004F3028DE7' or mac == '00409D581833':
@@ -390,7 +388,7 @@ def summaryfn(site_name, mac):
     peak = pd.concat([groupedroll,groupedbat], axis = 1, join = 'inner')
     peak.columns = ['Actual - Max Demand','Demand Shaving']
     peak = peak[peak['Demand Shaving'] < int(site_details[site_details['mac'] == mac]['Battery Size'].reset_index(drop=True)[0])]
-    conn.close()
+    
     return peak
 
 

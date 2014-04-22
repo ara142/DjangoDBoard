@@ -13,6 +13,7 @@ from datetime import date,time,timedelta, datetime
 import json
 from fns.functions import *
 
+conn = pyodbc.connect(DRIVER='{SQL Server}',SERVER='reportingdb',DATABASE='EnergyStorage',Trusted_Connection='yes', autocommit=True)
 
 
 # Create your views here.
@@ -20,7 +21,6 @@ from fns.functions import *
 def individual_index(request):
     jobid = []
 
-    conn = pyodbc.connect(DRIVER='{SQL Server}',SERVER='reportingdb',DATABASE='EnergyStorage',Trusted_Connection='yes', autocommit=True)
     for mac in site_details['mac']:
     
         sql = """
@@ -118,7 +118,6 @@ def status_check(request):
         order by MeasuredTime"""%(mac)
         #print sql1
         
-        conn = pyodbc.connect(DRIVER='{SQL Server}',SERVER='reportingdb',DATABASE='EnergyStorage',Trusted_Connection='yes', autocommit=True)
         df = pd.io.sql.read_frame(sql1, conn)
         
         if len(df) != 0:
@@ -174,7 +173,7 @@ def status_check(request):
 
 
 
-    conn.close()
+    
     status.columns = ['Site','Missing Data','Max Peak','No. Trgt Peak Changes','Energy Constraint','Did Battery Discharge','Uptime Availability','Time of Last Operation', 'Currently Operational']
 
     '''
@@ -226,7 +225,6 @@ def monthly_summary(request):
         order by MeasuredTime"""%(dt1.year,dt1.month,h,mac)
         
         #print sql1
-        conn = pyodbc.connect(DRIVER='{SQL Server}',SERVER='reportingdb',DATABASE='EnergyStorage',Trusted_Connection='yes', autocommit=True)
 
         df = pd.io.sql.read_frame(sql1, conn)
         if mac == '0004F3028DE7' or mac == '00409D581833':
@@ -282,7 +280,7 @@ def monthly_summary(request):
             
         status = status.append(pd.DataFrame(temp).transpose())
         
-    conn.close()
+   
     status.columns = ['Site','Missing Data','Max Peak','Demand Shaving(kW)','Uptime Availability','Currently Operational']
     status['Max Peak'] = status['Max Peak'].apply(rounding)
     status['Demand Shaving(kW)'] = status['Demand Shaving(kW)'].apply(rounding)
@@ -301,7 +299,6 @@ def monthly_summary(request):
 
 def individual_site(request, jobid):
 
-    conn = pyodbc.connect(DRIVER='{SQL Server}',SERVER='reportingdb',DATABASE='EnergyStorage',Trusted_Connection='yes', autocommit=True)
     sql = """
     select top 1 vci.customername, g.installationid, p.gatewaymac
     from Energystorage..peakshaving p(nolock)
