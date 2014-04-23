@@ -11,6 +11,16 @@ import json
 
 u = '#79BD3B'
 site = '#474747'
+
+'''	 
+dsn = 'sqlserverdatasource'
+user = 'SolarGrid' # SolarGrid
+password = 'nq761ScU' # nq761ScU
+database = 'EnergyStorage' #SolarWorks
+	 
+con_string = 'DSN=%s;UID=%s;PWD=%s;DATABASE=%s;' % (dsn, user, password, database)
+conn = pyodbc.connect(con_string)
+'''
 conn = pyodbc.connect(DRIVER='{SQL Server}',SERVER='reportingdb',DATABASE='EnergyStorage',Trusted_Connection='yes', autocommit=True)
 
 
